@@ -12,30 +12,26 @@
 
 
 
-// Variable to get the computer's selection
-const computerSelection = getComputerChoice();
-
-// Variable to get the player's selection
-const playerSelection = ('scissors').toLowerCase();
-console.log(playerSelection);
-
 // score variable
 let playerScore = 0;
 let computerScore = 0;
 
 // Get the computer's random choice
 function getComputerChoice() {
-    const choices = ['Rock', 'Paper', 'Scissors'];
+    const choices = ['rock', 'paper', 'scissors'];
     // selects random choice from array
-    const randomComputerSelection = choices[Math.floor(Math.random() * choices.length)].toLowerCase();
-    console.log(randomComputerSelection);
+    const randomComputerSelection = choices[Math.floor(Math.random() * choices.length)];
     return(randomComputerSelection);
 }
 
 // Function to play a single round
 function playRound(playerSelection, computerSelection) {
+    // if an invalid option is chosen
+    if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {
+        return "Please choose a valid option! Rock, paper or scissors?";
+    }
     // draw condition in case of both the player and computer selecting the same option
-    if (playerSelection == computerSelection) {
+    else if (playerSelection == computerSelection) {
         return "It's a draw!";
     }
     // player win conditions:
@@ -66,4 +62,30 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-console.log(playRound(playerSelection, computerSelection));
+// Function for a game of 5 rounds
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let computerSelection = getComputerChoice();
+        let playerSelection = prompt("Rock, paper or scissors?").toLowerCase();
+        console.log(playRound(playerSelection, computerSelection));
+        console.log(playerScore);
+        console.log(computerScore);
+    }
+}
+
+game();
+
+// Function to output the final results of the game
+function finalResult() {
+    if (playerScore > computerScore) {
+        return "CONGRATULATIONS! YOU WON!";
+    }
+    else if (computerScore > playerScore) {
+        return "BOOHOO, YOU LOSE!";
+    }
+    else if (playerScore == computerScore) {
+        return "TIE GAME!";
+    }
+}
+
+console.log(finalResult());
