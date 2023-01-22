@@ -5,9 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors Project</title>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
+    <header>Rock, paper, scissors!</header>
+    
+        <p id="openingText">You vs the Computer. First one to 5 wins. Choose wisely...</p>
+    
+    <div id="choices">
+        <div class="choicesContainer" id="rockContainer">
+            <button class="choicesButtons" id="rock">
+                <img src="images/rock.png" alt="Hand gesture of rock.">
+                <p class="buttonText">Rock</p>
+            </button>
+        </div>
+        <div class="choicesContainer" id="paperContainer">
+            <button class="choicesButtons" id="paper">
+                <img src="images/paper.png" alt="Hand gesture of paper.">
+                <p class="buttonText">Paper</p>
+            </button>
+        </div>
+        <div class="choicesContainer" id="scissorsContainer">
+            
+            <button class="choicesButtons" id="scissors">
+                <img src="images/scissors.png" alt="Hand gesture of scissors.">
+                <p class="buttonText">Scissors</p>
+            </button>
+        </div>
+    </div>
+   
+    <div id="resultContainer">
+        <div id="resultDisplay"></div>
+        <div id="playerScoreDisplay"></div>
+        <div id="computerScoreDisplay"></div>
+    </div>
+
+    <footer>Copyright &copy Azhar Kadwa 2023</footer>
     
 </body>
 </html>
